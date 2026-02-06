@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose Day Special</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { 
+            --red: #d63031; 
+            --soft: rgba(255, 245, 245, 0.9); 
+            --text: #2d3436;
+        }
+
+        body { 
+            margin: 0; font-family: 'Poppins', sans-serif; min-height: 100vh; 
+            display: flex; align-items: center; justify-content: center;
+            /* Background Image Setup */
+            background-image: url('https://wallpapers.com/images/hd/bouquet-of-red-roses-06zsr594upbgraut.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; /* This makes it auto-fit to all devices */
+            background-attachment: fixed;
+            overflow: hidden; 
+            transition: all 0.8s ease;
+        }
+
+        /* Overlay for better readability on other pages */
+        body.active { 
+            background-color: var(--soft);
+            background-blend-mode: overlay;
+        }
+
+        .card {
+            background: white; padding: 40px 30px; border-radius: 25px;
+            width: 85%; max-width: 400px; text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            display: none; animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 2;
+        }
+
+        .card.show { display: block; }
+
+        @keyframes pop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        h1 { font-family: 'Dancing Script', cursive; color: var(--red); font-size: clamp(2rem, 8vw, 2.8rem); margin: 0 0 15px 0; }
+        p { color: var(--text); font-size: clamp(1rem, 4vw, 1.15rem); line-height: 1; margin-bottom: 25px; font-weight: 400; }
+        
+        .btn-box { display: flex; justify-content: center; gap: 12px; margin-top: 10px; }
+        .btn { 
+            background: var(--red); color: white; border: none; padding: 12px 24px; border-radius: 50px; 
+            cursor: pointer; font-weight: 600; font-size: 0.95rem; transition: 0.3s;
+            font-family: 'Poppins', sans-serif; box-shadow: 0 4px 15px rgba(204, 14, 14, 0.775);
+        }
+        .btn-sec { background: #636e72; box-shadow: 0 4px 15px rgba(99, 110, 114, 0.2); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(214, 48, 49, 0.4); }
+
+        .rose-img { width: 120px; height: auto; margin-bottom: 20px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); }
+
+        .petal {
+            position: absolute; 
+            background: #c60000;
+            border-radius: 150% 0 150% 0; animation: fall 4s linear forwards; 
+            z-index: 1; pointer-events: none;
+        }
+
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+    </style>
+</head>  
+<body id="b">
+
+    <audio id="s1" loop><source src="https://files.catbox.moe/p27rsk.mp3"></audio>
+    <audio id="s2"><source src="https://files.catbox.moe/3ebaq5.mp3"></audio>
+
+    <div class="card show" id="p1">
+        <h1>Happy Rose Day! 🌹</h1>
+        <p>I have a little something for you...</p>
+        <button class="btn" onclick="go(2)"> Click to Open </button> 
+    </div>
+
+    <div class="card" id="p2">
+        <h1> For You ✨❤️</h1>
+        <img src="https://cdn.globalrose.com/assets/img/prod/freedom-red-roses-globalrose.png"
+           class="rose-img"><p>" I couldn't give you a real rose right now, but check this...   <br>Sending you this digital rose to let
+know how special you are to me"</p>
+<div class="btn-box"><button class="btn btn-sec" onclick="go(1)">Back</button>
+
+
+    
+    <button class="btn" onclick="go(3)">Next</button></div></div>
+    <div class="card" id="p3"><h1>You are Special 🌟 ❤️</h1>
+        <p>"Don't know why or how.<br> 
+            <br>"You are the most beautiful flower <br> 
+            in my life's garden.</p>
+        <div class="btn-box"><button class="btn btn-sec" onclick="go(2)">Back</button>
+            <button class="btn" onclick="go(4)">Next</button></div></div>
+
+
+
+
+             <div class="card" id="p4"><h1>Dil Se... ❤️</h1>
+                <p>"फूल बनकर मुस्कुराना ज़िंदगी है,<br><br>
+
+मुस्कुरा के गम भुलाना ज़िंदगी है,<br><br>
+
+मिलकर खुश हुए तो क्या हुआ,<br><br>
+
+बिना मिले याद करना भी ज़िंदगी है।"<br><br>
+Happy Rose Day!."</p>
+<div class="btn-box"><button class="btn btn-sec" onclick="go(3)">Back</button>
+    
+    <button class="btn" onclick="go(5)">Next</button></div></div>
+
+
+
+    <div class="card" id="p5"><h1>Sukoon ❤️</h1>
+        <p>"Pata nahi kyu par jab bhi hum baat karte h  <br>
+            sab kuch thoda better lagne lagta hai.
+             Shayad tumhari vibe hi <br>aisi hai ki 
+             bina wajah smile aa jati hai.".</p>
+        <div class="btn-box"><button class="btn btn-sec" 
+            onclick="go(4)">Back</button><button class="btn" 
+            onclick="go(6)">Next</button></div></div>
+
+
+
+
+    <div class="card" id="p6"><h1>11:11 Wish ? ✨</h1>
+        <p>"Log kehte hain 11:11 par maangi hui<br>
+             har wish poori hoti hai. Meri wish too<br>
+              bas yahi hai ki tumhari ye smile <br>
+               hamesha aise hi barkaraar rahe."
+            </p>
+        <div class="btn-box"><button class="btn btn-sec"
+             onclick="go(5)">Back</button><button class="btn"
+              onclick="go(7)">Next</button></div>
+            </div>
+
+            
+
+   <div class="card" id="p7"><h1>Thoughts 💭</h1
+        ><p>You deserve a whole garden,
+             <br>not just a rose 🌹.</p>
+        <div class="btn-box"><button class="btn btn-sec" onclick="go(6)">Back</button>
+            <button class="btn" onclick="go(8)">Next</button></div></div>
+
+
+    <div class="card" id="p8"><h1>10+ Notifications 🔔📖</h1>
+        <p>"Abhi toh sirf imagination mein notifications aa 
+            rahe hain... Dua karo asliyat mein aa jayein, 
+            toh phone sambhaalna mushkil ho jayega
+             tumhare liye! 😉"</p>
+             <p> ""     Vo to control hai mera    "" </p>
+        <div class="btn-box"><button class="btn btn-sec" 
+            onclick="go(7)">Back</button><button class="btn" 
+            onclick="go(9)">Next</button></div>
+        
+        </div>
+
+
+    <div class="card" id="p9"><h1>Just Checking... 😏 </h1> <p>"Abhi ye sab padhte waqt... chehre prr thodi si smile aayi ya nahi? Kyunki mujhe yha tk apki chamak mehsoos ho rhi h. Itna mat sharmaiye,</p>
+         
+
+            <i>achhi lagti ho tum haste hue! ✨</i>".
+</p> <div class="btn-box"><button class="btn btn-sec" 
+        onclick="go(8)">Back</button><button 
+        class="btn" onclick="go(10)">Next</button></div></div>
+   
+   
+   
+   
+   <div class="card" id="p10">
+    <h1>"Probability Meter" 📊</h1>
+    <p>"Maine ek calculation run ki ye dekhne ke liye ki pure universe mein aap jaisa 'Pure Heart' milne ki probability kya hai...</p>
+    
+    <div id="meter-box" style="margin: 15px 0; border-top: 1px solid #eee; padding-top: 15px;">
+        <p style="font-size: 0.85rem; color: #777;">Scanning your uniqueness... 🛸</p>
+        <div style="width: 100%; height: 12px; background: #eee; border-radius: 10px; position: relative; overflow: hidden;">
+            <div id="fill-bar-p10" style="height: 100%; width: 0%; background: linear-gradient(90deg, #ff4d6d, #ff8fa3); transition: width 2s ease-in-out;"></div>
+        </div>
+        <p id="percent-p10" style="font-size: 0.8rem; font-weight: bold; margin-top: 5px;">0%</p>
+    </div>
+
+    <div id="crash-msg-p10" style="display: none; height: 60px;">
+        <p style="color: red; font-size: 15px; font-weight: bold; margin: 0;" class="shake-text">⚠️ ERROR: SCALE OVERLOADED!</p>
+<p style="font-size: 0.85rem; margin-top: 5px;">Aap jaisa 'Pure Heart' milne ki probability mere logic se bahar hai. <b>One in a Billion! ✨</b></p>
+    </div>
+
+    <div class="btn-box">
+        <button class="btn btn-sec" onclick="go(9)">Back</button>
+        <button class="btn" onclick="go(11)">Next</button>
+    </div>
+
+    <script>
+        // Ye logic check karega ki p10 visible hai ya nahi
+        function checkAndStart() {
+            const page = document.getElementById('p10');
+            const fill = document.getElementById('fill-bar-p10');
+            const percent = document.getElementById('percent-p10');
+            const msg = document.getElementById('crash-msg-p10');
+
+            // Agar page display block hai (yani dikh raha hai)
+            if (window.getComputedStyle(page).display !== 'none') {
+                fill.style.width = '100%';
+                let count = 0;
+                let counter = setInterval(() => {
+                    count++;
+                    percent.innerText = count + '%';
+                    if (count >= 100) {
+                        clearInterval(counter);
+                        setTimeout(() => {
+                            percent.innerText = '999% !!';
+                            percent.style.color = 'red';
+                            fill.style.background = 'red';
+                            msg.style.display = 'block';
+                        }, 500);
+                    }
+                }, 25);
+            }
+        }
+
+        // Har 1 second mein check karega ki user p10 par aaya ya nahi
+        // Jaise hi aayega, animation shuru ho jayegi
+        setInterval(checkAndStart, 1000);
+    </script>
+</div>
+
+
+
+<div class="card" id="p11">
+    <h1 style="color: #d63384;">One in a Billion Frame ✨</h1>
+    <p style="font-size: 0.9rem; margin-bottom: 10px;">
+        "Maine ek slot khali rakha tha... Is poori website ki sabse khubsurat 'Wajah' ke liye."
+        <br><b>upload your pic here !</b>
+    </p>
+
+    <div id="photoFrame" style="width: 100%; max-width: 300px; min-height: 200px; border: 3px dashed #ff8fa3; margin: 15px auto; border-radius: 15px; display: flex; align-items: center; justify-content: center; position: relative; background: #fff0f3; overflow: hidden;">
+        
+        <img id="userPhoto" src="#" alt="Your Photo" 
+             style="display: none; width: 100%; height: auto; max-height: 400px; object-fit: contain; padding: 5px;">
+        
+        <span id="uploadHint" style="font-size: 3rem; color: #ff8fa3; cursor: pointer;">➕</span>
+        
+        <input type="file" id="photoInput" accept="image/*" 
+               style="position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer;" 
+               onchange="previewPhoto(this)">
+    </div>
+
+    <div id="photoCaption" style="display: none; animation: fadeIn 1s ease; padding: 0 10px;">
+        <p style="font-family: 'Dancing Script', cursive; font-size: 1.4rem; color: #d63384; margin: 10px 0 5px 0;">
+            "Ab ye website poori hui... ❤️"
+        </p>
+        
+    </div>
+
+    <div class="btn-box">
+        <button class="btn btn-sec" onclick="go(10)">Back</button>
+        <button id="p11Next" class="btn" onclick="go(12)" style="display: none;">Next 😊</button>
+    </div>
+</div>
+
+<script>
+function previewPhoto(input) {
+    const file = input.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.getElementById('userPhoto');
+            const hint = document.getElementById('uploadHint');
+            const caption = document.getElementById('photoCaption');
+            const nextBtn = document.getElementById('p11Next');
+            const frame = document.getElementById('photoFrame');
+
+            img.src = e.target.result;
+            img.style.display = 'block';
+            hint.style.display = 'none';
+            
+            // Frame ki styling update
+            frame.style.borderStyle = 'solid';
+            frame.style.background = '#fff';
+            
+            caption.style.display = 'block';
+            nextBtn.style.display = 'inline-block';
+        }
+        reader.readAsDataURL(file);
+    }
+}
+</script>
+   
+
+
+  <div class="card" id="p12">
+    <h1 >The Final Promise 🤝</h1>
+    <p style="font-size: 1.1rem; margin-bottom: 15px;"></p>
+    
+    <div style="text-align: left; background: rgba(255, 255, 255, 0.5); padding: 15px; border-radius: 15px; border-left: 4px solid #ff4d6d; margin-bottom: 20px;">
+        <p style="margin: 5px 0; font-size: 0.95rem;">
+            ✨ <b>Tum Hamesha Happy Rahogi:</b> Chahe kuch bhi ho jaye, tumhari ye smile kam nahi honi chahiye.
+        </p>
+        <p style="margin: 15px 0 5px 0; font-size: 0.95rem;">
+            🤝 <b>Vaada karo ki humari ye 'Vibe' hamesha aise hi rahegi. Promise me you will always be with me</b>
+        </p>
+    </div>
+
+    <p style="font-weight: bold; color: #ff4d6d; font-size: 1.2rem;">Happy Rose Day! 🌹</p>
+
+    <div class="btn-box">
+        <button class="btn btn-sec" onclick="go(11)">Back</button>
+        <button class="btn" onclick="celebrate()">I Promise ❤️</button>
+    </div>
+</div>
+
+<script>
+function celebrate() {
+    // Jab wo "I Promise" click karengi toh ye agle page (p13) par le jayega
+    alert ("Promise Accepted! 🌹 Hamesha khush rehna.");
+    go(13);
+}
+</script>
+    <div class="card" id="p13"><h1>Surprise 🎁</h1><p>Bas ek aakhiri cheez...</p><div class="btn-box"><button class="btn btn-sec" onclick="go(12)">Back</button><button class="btn" onclick="go(14)">Check it!</button></div></div>
+
+
+    <div class="card" id="p14">
+        <h1>Music For You 🎵</h1>
+        <p>I picked a special song just for you.<br> Please isse pura sunna...</p>
+        <button class="btn" onclick="playM()">Play Song 🎼</button>
+        <div class="btn-box">
+            <button class="btn btn-sec" onclick="go(13)">Back</button>
+            <button class="btn" onclick="go(15)">Final Step</button>
+        </div>
+    </div>
+
+
+    <div class="card" id="p15">
+        <h1>Happy Rose Day! 🌹</h1>
+        <p>Aap hamesha aise hi muskurate raho. <br>
+            You are precious! ❤️</p>
+        <div class="btn-box">
+            <button class="btn btn-sec" onclick="go(14)">Back</button>
+            <button class="btn" onclick="location.reload()">Restart 🔄</button>
+        </div>
+    </div>
+
+    <script>
+
+
+// PROTECTION: Right-click & Shortcuts Block
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))))) {
+                return false;
+            }
+        };
+        
+        let ptl;
+        const s1 = document.getElementById('s1');
+        const s2 = document.getElementById('s2');
+        let s1Started = false;
+
+        function go(n) {
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('show'));
+            document.getElementById('p' + n).classList.add('show');
+            
+            if(n >= 2) {
+                document.getElementById('b').classList.add('active');
+                if(!ptl) ptl = setInterval(leaf, 200);
+
+                if(!s1Started) {
+                    s1.currentTime = 12; 
+                    s1.play().catch(e => console.log("User interaction needed"));
+                    s1Started = true;
+                } else if (s1.paused && n !== 14) {
+                    s1.play(); 
+                }
+            } else {
+                document.getElementById('b').classList.remove('active');
+                s1.pause();
+                s1Started = false; 
+                if(ptl) { clearInterval(ptl); ptl = null; }
+            }
+
+            if (n !== 14) {
+                s2.pause();
+            }
+        }
+
+        function playM() {
+            s1.pause();
+            s2.currentTime = 23; 
+            s2.play();
+            alert("Playing your special melody! 🎶");
+        }
+
+        function leaf() {
+            const l = document.createElement('div');
+            l.className = 'petal';
+            l.style.left = Math.random() * 100 + 'vw';
+            const size = (Math.random()*15+12)+'px';
+            l.style.width = l.style.height = size;
+            l.style.top = '-20px';
+            l.style.animationDuration = (Math.random()*2 + 3) + 's';
+            document.body.appendChild(l);
+            setTimeout(() => l.remove(), 4000);
+        }
+    </script>
+</body>
+</html>
